@@ -41,7 +41,7 @@ namespace StrategyPattern
         object DoAlgorithm(object data);
     }
 
-    public class ConcreteStrategyA : IStrategy
+    public class SortAscendingOrder : IStrategy
     {
         public object DoAlgorithm(object data)
         {
@@ -52,7 +52,7 @@ namespace StrategyPattern
         }
     }
 
-    public class ConcreteStrategyB : IStrategy
+    public class SortDescendingOrder : IStrategy
     {
         public object DoAlgorithm(object data)
         {
@@ -72,13 +72,13 @@ namespace StrategyPattern
             var context = new Context();
 
             Console.WriteLine("Client: Strategy is set to normal sorting.");
-            context.SetStrategy(new ConcreteStrategyA());
+            context.SetStrategy(new SortAscendingOrder());
             context.DoSomeBusinessLogic();
 
             Console.WriteLine();
 
             Console.WriteLine("Client: Strategy is set to reverse sorting.");
-            context.SetStrategy(new ConcreteStrategyB());
+            context.SetStrategy(new SortDescendingOrder());
             context.DoSomeBusinessLogic();
         }
     }

@@ -8,7 +8,7 @@ namespace StrategyPattern.Test
         public void StrategyA()
         {
             // Arrange
-            var strategy = new ConcreteStrategyA();
+            var strategy = new SortAscendingOrder();
             var input = new List<string> { "d", "b", "e", "a", "c" };
 
             // Act
@@ -22,7 +22,7 @@ namespace StrategyPattern.Test
         [Test]
         public void StrategyB()
         {
-            var strategy = new ConcreteStrategyB();
+            var strategy = new SortDescendingOrder();
             var input = new List<string> { "d", "b", "e", "a", "c" };
             var result = strategy.DoAlgorithm(input) as List<string>;
             var expected = new List<string> { "e", "d", "c", "b", "a" };
@@ -32,8 +32,8 @@ namespace StrategyPattern.Test
         [Test]
         public void EmptySort()
         {
-            var strategyA = new ConcreteStrategyA();
-            var strategyB = new ConcreteStrategyB();
+            var strategyA = new SortAscendingOrder();
+            var strategyB = new SortDescendingOrder();
             var input = new List<string>();
 
             var resultA = strategyA.DoAlgorithm(input) as List<string>;
@@ -48,8 +48,8 @@ namespace StrategyPattern.Test
         {
             var input = new List<string> { "x" };
 
-            var resultA = new ConcreteStrategyA().DoAlgorithm(input) as List<string>;
-            var resultB = new ConcreteStrategyB().DoAlgorithm(input) as List<string>;
+            var resultA = new SortAscendingOrder().DoAlgorithm(input) as List<string>;
+            var resultB = new SortDescendingOrder().DoAlgorithm(input) as List<string>;
 
             var expected = new List<string> { "x" };
 
@@ -63,8 +63,8 @@ namespace StrategyPattern.Test
             var inputA = new List<string> { "a", "b", "c", "d" };
             var inputB = new List<string> { "a", "b", "c", "d" };
 
-            var resultA = new ConcreteStrategyA().DoAlgorithm(inputA) as List<string>;
-            var resultB = new ConcreteStrategyB().DoAlgorithm(inputB) as List<string>;
+            var resultA = new SortAscendingOrder().DoAlgorithm(inputA) as List<string>;
+            var resultB = new SortDescendingOrder().DoAlgorithm(inputB) as List<string>;
 
             var expectedA = new List<string> { "a", "b", "c", "d" };
             var expectedB = new List<string> { "d", "c", "b", "a" };
@@ -79,8 +79,8 @@ namespace StrategyPattern.Test
             var inputA = new List<string> { "a", "c", "b", "a", "b" };
             var inputB = new List<string> { "a", "c", "b", "a", "b" };
 
-            var resultA = new ConcreteStrategyA().DoAlgorithm(inputA) as List<string>;
-            var resultB = new ConcreteStrategyB().DoAlgorithm(inputB) as List<string>;
+            var resultA = new SortAscendingOrder().DoAlgorithm(inputA) as List<string>;
+            var resultB = new SortDescendingOrder().DoAlgorithm(inputB) as List<string>;
 
             var expectedA = new List<string> { "a", "a", "b", "b", "c" };
             var expectedB = new List<string> { "c", "b", "b", "a", "a" };
